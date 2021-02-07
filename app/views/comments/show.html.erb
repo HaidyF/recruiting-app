@@ -1,5 +1,7 @@
 <h1>
 <label name="Comment"></label>
 <%= @comment.comment_text %><br>
+
 </h1>
 <br>
+<%= link_to "Delete Comment", comment_path(@comment) %>

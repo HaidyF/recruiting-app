@@ -1,6 +1,11 @@
 <h1>
 <label name="Recruiter"></label>
-<%= @recruiter.title %><br>
-<%= @recruiter.description %><br>
+<% @recruiter.each do |r|%>
+<%= r.title %><br>
+<%= r.description %><br>
+<% end %>
 </h1>
 <br>
+<%= link_to "New Job", new_job_path(@job) %>
+<%= link_to "Edit Recruiter Account", edit_recruiter_path(@recruiter) %>
+<%= link_to "Delete Recruiter Account", recruiter_path(@recruiter) %>

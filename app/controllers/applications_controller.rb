@@ -37,5 +37,5 @@ class ApplicationsController < ApplicationController
     #   def application_params
     #     params.require(:application).permit(:title, :description)
     #   end
-    end
+
 end

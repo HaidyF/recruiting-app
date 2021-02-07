@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'sessions#welcome'
+  
   resources :recruiters
   resources :jobs
   resources :users

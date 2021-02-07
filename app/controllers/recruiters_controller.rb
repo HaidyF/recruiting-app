@@ -7,14 +7,18 @@ class RecruitersController < ApplicationController
         @recruiter = Recruiter.new
     end
 
+    def show
+      @recruiter = Recruiter.find(params[:id])
+    end
+
     def create 
         @recruiter = Recruiter.new(recruiter_params)
 
         if @recruiter.valid?
-        @recruiter.save
-            redirect_to recruiter_path(@recruiter)
+          @recruiter.save
+          redirect_to recruiter_path(@recruiter)
         else
-            render :new
+          render :new
         end
     end
 
@@ -37,5 +41,5 @@ class RecruitersController < ApplicationController
       def recruiter_params
         params.require(:recruiter).permit(:title, :description)
       end
-    end
+  
 end

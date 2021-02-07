@@ -11,8 +11,8 @@ class CommentsController < ApplicationController
         @comment = Comment.new(comment_params)
 
         if @comment.valid?
-        @comment.save
-            redirect_to comment_path(@comment)
+          @comment.save
+          redirect_to comment_path(@comment)
         else
             render :new
         end
@@ -37,5 +37,5 @@ class CommentsController < ApplicationController
       def comment_params
         params.require(:comment).permit(:comment_text, :comment_date)
       end
-    end
+    
 end

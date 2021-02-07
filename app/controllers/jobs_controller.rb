@@ -9,10 +9,9 @@ class JobsController < ApplicationController
 
     def create 
         @job = Job.new(job_params)
-
         if @job.valid?
-        @job.save
-            redirect_to job_path(@job)
+          @job.save
+          redirect_to job_path(@job)
         else
             render :new
         end
@@ -25,7 +24,7 @@ class JobsController < ApplicationController
         else
           render :edit
         end
-      end
+    end
       
     def destroy
         Job.find(params[:id]).delete
@@ -37,5 +36,5 @@ class JobsController < ApplicationController
       def job_params
         params.require(:job).permit(:title, :description)
       end
-    end
+    
 end

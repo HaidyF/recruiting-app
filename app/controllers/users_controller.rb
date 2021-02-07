@@ -1,20 +1,34 @@
 class UsersController < ApplicationController
-    def new
+  
+      def index
+        @users = User.all
+      end
+
+      def new
         @user = User.new
       end
     
       def create
-        user = User.create(user_params)
-        if user.valid?
-          session[:user_id] = user.id
-          redirect_to user_path(user)
+        @user = User.create(user_params)
+        if @user.valid?
+          session[:user_id] = @user.id
+          redirect_to user_path(@user)
         else
-          render :new
+          render :show
         end
       end
     
       def show
         @user = User.find_by(:id => params[:id])
+      end
+
+      def update
+        @user = User.find(params[:id])
+        if @user.update(user_params)
+          redirect_to user_path(@user)
+        else
+          render :edit
+        end
       end
     
       private

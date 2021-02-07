@@ -1,6 +1,11 @@
 <h1>
 <label name="name"></label>
 <%= @user.first_name %><br>
+<%= @user.email %><br>
 </h1>
 <br>
-<a id="Edit profile" href="<%= edit_user_url %>"/>Edit profile</a><br>
+<%= link_to "Sign Out", user_path(@user) %>
+<br>
+<%= link_to "Edit User Account", edit_user_path(@user) %>
+<br>
+<%= link_to "Delete User Account", user_path(@user) %>

@@ -1,0 +1,10 @@
+<h1>
+<label name="Job"></label>
+<% @job.each do |j|%>
+<%= j.title %><br>
+<%= j.description %><br>
+<% end %>
+</h1>
+<br>
+<%= link_to "Edit Job", edit_job_path(@job) %>
+<%= link_to "Delete Job", job_path(@job) %>
