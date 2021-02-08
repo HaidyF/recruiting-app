@@ -1,14 +1,13 @@
 <h1>
-<label name="name"></label>
 <%= @user.first_name %><br>
 <%= @user.email %><br>
 </h1>
 <br>
-<%= link_to "Sign Out", user_path(@user) %>
+<%= button_to "Sign Out", user_path(@user) %>
 <br>
-<%= link_to "Edit User Account", edit_user_path(@user) %>
+<%= button_to "Edit User Account", edit_user_path(@user) %>
 <br>
-<%= link_to "Delete User Account", user_path(@user) %>
+<%= button_to "Delete User Account", user_path(@user) %>
 <br>
 <%= link_to "Home", root_path(@user) %>
 
