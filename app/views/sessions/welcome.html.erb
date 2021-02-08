@@ -2,13 +2,42 @@
       <div class="theme-showcase" role="main">
 
   <div class="left-pic">
-    <img src="https://i.pinimg.com/236x/ae/bf/3f/aebf3f4b43691000bc0ce9980dc3504f.jpg" width="550" height="325">
+    <img src="https://cdn.technologyadvice.com/wp-content/uploads/2019/11/The-Best-Recruitment-Software-for-Agencies1.png">
   </div>
 
   <div class="right-info">
-    <h1>Welcome to your New Job!</h1>
+    <h1>Welcome To The Software Engineers Recruitment Website!</h1>
   </div>
 
   <br>
+  
+  <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+
+<body>
+  <div id="my-signin2"></div>
+  <script>
+    function onSuccess(googleUser) {
+      console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+    }
+    function onFailure(error) {
+      console.log(error);
+    }
+    function renderButton() {
+      gapi.signin2.render('my-signin2', {
+        'scope': 'profile email',
+        'width': 240,
+        'height': 50,
+        'longtitle': true,
+        'theme': 'dark',
+        'onsuccess': onSuccess,
+        'onfailure': onFailure
+      });
+    }
+  </script>
+
+  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+</body>
+
+<h3><%= link_to "Sign In", signin_path(@user) %></h3>
 <h3><%= link_to "New User", new_user_path(@user) %></h3>
 <h3><%= link_to "New Recruiter", new_recruiter_path(@recruiter) %></h3>

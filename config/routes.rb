@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'sessions#welcome'
+  get '/auth/:provider/callback', to: 'sessions#omniauth'
   
   resources :recruiters
   resources :jobs

@@ -1,36 +1,36 @@
 class ApplicationsController < ApplicationController
-    def index
-        @applications = Application.all
-    end
+    # def index
+    #     @applications = Application.all
+    # end
 
-    def new
-        @application = Application.new
-    end
+    # def new
+    #     @application = Application.new
+    # end
 
-    def create 
-        @application = Application.new(application_params)
+    # def create 
+    #     @application = Application.new(application_params)
 
-        if @application.valid?
-        @application.save
-            redirect_to application_path(@application)
-        else
-            render :new
-        end
-    end
+    #     if @application.valid?
+    #     @application.save
+    #         redirect_to application_path(@application)
+    #     else
+    #         render :new
+    #     end
+    # end
 
-    def update
-        @application = Application.find(params[:id])
-        if @application.update(application_params)
-          redirect_to application_path(@application)
-        else
-          render :edit
-        end
-      end
+    # def update
+    #     @application = Application.find(params[:id])
+    #     if @application.update(application_params)
+    #       redirect_to application_path(@application)
+    #     else
+    #       render :edit
+    #     end
+    #   end
       
-    def destroy
-        Application.find(params[:id]).delete
-        redirect_to application_path
-    end
+    # def destroy
+    #     Application.find(params[:id]).delete
+    #     redirect_to application_path
+    # end
     
     #   private
     
