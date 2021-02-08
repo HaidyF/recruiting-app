@@ -7,6 +7,10 @@ class ApplicationsController < ApplicationController
     #     @application = Application.new
     # end
 
+    def edit 
+        @application = Application.find_by(params[:id])
+      end
+
     # def create 
     #     @application = Application.new(application_params)
 

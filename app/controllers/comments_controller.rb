@@ -18,6 +18,10 @@ class CommentsController < ApplicationController
         end
     end
 
+    def edit 
+      @comment = Comment.find_by(params[:id])
+    end
+
     def update
         @comment = Comment.find(params[:id])
         if @comment.update(comment_params)

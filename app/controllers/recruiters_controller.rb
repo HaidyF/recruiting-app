@@ -11,6 +11,10 @@ class RecruitersController < ApplicationController
       @recruiter = Recruiter.find(params[:id])
     end
 
+    def edit 
+      @recruiter = Recruiter.find_by(params[:id])
+    end
+
     def create 
         @recruiter = Recruiter.new(recruiter_params)
 
