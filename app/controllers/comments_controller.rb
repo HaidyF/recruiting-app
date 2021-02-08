@@ -1,11 +1,19 @@
 class CommentsController < ApplicationController
     def index
+      if params[:job_id]
+        @comments = Job.find(params[:job_id]).comments
+      else
         @comments = Comment.all
+      end
     end
 
     def new
         @comment = Comment.new
     end
+
+    def show
+      @comment = Comment.find(params[:id])
+  end
 
     def create 
         @comment = Comment.new(comment_params)

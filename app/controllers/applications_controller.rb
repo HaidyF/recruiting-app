@@ -1,15 +1,24 @@
 class ApplicationsController < ApplicationController
-    # def index
-    #     @applications = Application.all
-    # end
+  
+    def index
+        if params[:job_id]
+      @applications = Job.find(params[:job_id]).applications
+        else
+      @applications = Application.all
+        end
+    end
 
-    # def new
-    #     @application = Application.new
-    # end
+    def show
+        @application = Application.find(params[:id])
+    end
+
+    def new
+        @application = Application.new
+    end
 
     def edit 
         @application = Application.find_by(params[:id])
-      end
+    end
 
     # def create 
     #     @application = Application.new(application_params)
