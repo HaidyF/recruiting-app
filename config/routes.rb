@@ -1,12 +1,21 @@
 Rails.application.routes.draw do
   root 'sessions#welcome'
+
+  # resources :recruiters, only: [:show] do
+  #   resources :jobs, only: [:show, :index] 
+    #comment/application
+  # end
+
   get '/auth/:provider/callback', to: 'sessions#omniauth'
   
   resources :recruiters
-  resources :jobs
+  resources :jobs do
+    resources :applications
+    resources :comments, shallow: true  
+  end
   resources :users
   resources :applications
-  resources :comments
+  
 
   get '/signin', to: 'sessions#new'
   post '/signin', to: 'sessions#create'
