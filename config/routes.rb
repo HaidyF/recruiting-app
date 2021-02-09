@@ -13,10 +13,11 @@ Rails.application.routes.draw do
     resources :applications
     resources :comments, shallow: true  
   end
-  resources :users
+  resources :users, except: :destroy
   resources :applications
   resources :comments
   
+  delete '/users/:id', to: 'users#destroy', as: "delete_user"
   get '/signin', to: 'sessions#new'
   post '/signin', to: 'sessions#create'
   delete '/signout', to: 'sessions#destroy'
