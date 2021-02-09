@@ -38,7 +38,8 @@ class RecruitersController < ApplicationController
       end
       
     def destroy
-        Recruiter.find(params[:id]).delete
+        recruiter = Recruiter.find(params[:id])
+        recruiter.destroy
         redirect_to recruiter_path
     end
     

@@ -18,7 +18,7 @@ class JobsController < ApplicationController
 
     def new
         @job = Job.new  
-        flash[:message] = @job.errors.full_messages.to_(", ")  
+        flash[:message] = @job.errors.full_messages.join(", ")  
     end
 
     def create 
@@ -43,7 +43,8 @@ class JobsController < ApplicationController
     end
       
     def destroy
-        Job.find(params[:id]).delete
+        job = Job.find(params[:id])
+        job.destroy
         redirect_to job_path
     end
     

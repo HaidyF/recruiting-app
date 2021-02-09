@@ -40,7 +40,8 @@ class CommentsController < ApplicationController
       end
       
     def destroy
-        Comment.find(params[:id]).delete
+        comment = Comment.find(params[:id])
+        comment.delete
         redirect_to comment_path
     end
     
