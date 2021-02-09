@@ -17,16 +17,19 @@ class JobsController < ApplicationController
     end
 
     def new
-        @job = Job.new
+        @job = Job.new  
+        flash[:message] = @job.errors.full_messages.to_(", ")  
     end
 
     def create 
         @job = Job.new(job_params)
         if @job.valid?
           @job.save
+          
           redirect_to job_path(@job)
         else
-            render :new
+          flash[:message] = @job.errors.full_messages.join(", ")  
+          render :new
         end
     end
 
@@ -47,7 +50,7 @@ class JobsController < ApplicationController
       private
     
       def job_params
-        params.require(:job).permit(:title, :description)
+        params.require(:job).permit(:title, :description, :experience, :recruiter)
       end
     
 end

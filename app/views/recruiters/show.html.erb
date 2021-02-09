@@ -1,12 +1,14 @@
+<%= flash[:message]%>
 <h1>
-<label name="Recruiter"></label>
-<% @recruiter.each do |r|%>
-<%= r.title %><br>
-<%= r.description %><br>
-<% end %>
-</h1>
+Recruiter:
 <br>
+<%= @recruiter.title %> - <%= @recruiter.description %><br>
+
+</h1>
 <%= link_to "New Job", new_job_path(@job) %>
+<br>
 <%= link_to "Edit Recruiter Account", edit_recruiter_path(@recruiter) %>
+<br>
 <%= link_to "Delete Recruiter Account", recruiter_path(@recruiter) %>
+<br>
 <%= link_to "Home", root_path(@user) %>

@@ -1,8 +1,9 @@
 class Application < ApplicationRecord
-    # validates :title, presence: true, uniqueness: true
-    # validates_presence_of :release_year, :if => :released?
-    # validates :release_year, numericality: { less_than_or_equal_to: Date.today.year }, :if => :released?
-    # validates :artist_name, presence: true
+    validates :title, presence: true
+    validates :experience, presence: true
+    validates :description, presence: true
+    validates :recruiter, presence: true
+
     belongs_to :job
     belongs_to :user
 end

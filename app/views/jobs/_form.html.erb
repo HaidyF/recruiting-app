@@ -1,6 +1,8 @@
 <%= form_for (@job) do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
+ <br />
+  <%= f.label :recruiter %> <%= f.collection_select :recruiter_id, Recruiter.all, :id, :title, include_blank: true %>
   <br />
   <%= f.label :description %>
   <%= f.text_field :description %>

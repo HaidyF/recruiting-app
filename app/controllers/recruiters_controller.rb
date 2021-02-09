@@ -22,6 +22,7 @@ class RecruitersController < ApplicationController
           @recruiter.save
           redirect_to recruiter_path(@recruiter)
         else
+          flash[:message] = @recruiter.errors.full_messages.to_(", ")  
           render :new
         end
     end
@@ -31,6 +32,7 @@ class RecruitersController < ApplicationController
         if @recruiter.update(recruiter_params)
           redirect_to recruiter_path(@recruiter)
         else
+          flash[:message] = @recruiter.errors.full_messages.to_(", ")  
           render :edit
         end
       end
