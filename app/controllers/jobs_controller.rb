@@ -8,7 +8,7 @@ class JobsController < ApplicationController
       # end
     end
 
-    def shows
+    def show
       @job = Job.find(params[:id])
     end
 

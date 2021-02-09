@@ -1,10 +1,9 @@
 <%= flash[:message]%>
 <h1>
-<label name="Job"></label>
-<% @job.each do |j|%>
-<%= j.title %><br>
-<%= j.description %><br>
-<% end %>
+Job:
+<%= @job.title %><br>
+<%= @job.description %><br>
+<%= @job.comment%>
 </h1>
 <br>
 <%= button_to "Apply Here", new_application_path(@application) %>

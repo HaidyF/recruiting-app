@@ -2,7 +2,7 @@ class ApplicationsController < ApplicationController
   
     def index
         if params[:job_id]
-      @applications = Job.find(params[:job_id]).applications
+      @application = Job.find(params[:job_id]).applications
         else
       @applications = Application.all
         end
