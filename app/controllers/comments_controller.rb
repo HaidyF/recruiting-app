@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
     end
 
     def show
-      @comment = Comment.find(:id => params[:id])
+      @comment = Comment.find(params[:id])
     end
 
     def create 
@@ -37,7 +37,7 @@ class CommentsController < ApplicationController
         else
           render :edit
         end
-      end
+    end
       
     def destroy
         comment = Comment.find(params[:id])

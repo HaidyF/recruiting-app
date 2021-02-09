@@ -1,4 +1,5 @@
 class Application < ApplicationRecord
+    
     validates :title, presence: true
     validates :experience, presence: true
     validates :description, presence: true
