@@ -6,10 +6,11 @@ class SessionsController < ApplicationController
 
     def omniauth 
       user = User.create_from_omniauth(auth)
-      if user.save
+      if user.valid?
         session[:user_id] = user.id
         redirect_to new_user_path
       else
+        flash[:message] = user.errors.full_messages.join(", ")
         redirect_to users_path
       end
     end
@@ -20,7 +21,8 @@ class SessionsController < ApplicationController
           session[:user_id] = @user.id
           redirect_to user_path(@user)
         else
-          render :new
+          flash[:message] = "Please Enter Valid Combination."
+          redirect_to '/login'
         end
       end
 
