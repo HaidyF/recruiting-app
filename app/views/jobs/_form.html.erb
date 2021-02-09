@@ -2,7 +2,8 @@
   <%= f.label :title %>
   <%= f.text_field :title %>
  <br />
-  <%= f.label :recruiter %> <%= f.collection_select :recruiter_id, Recruiter.all, :id, :title, include_blank: true %>
+  <%= f.label :recruiter %> 
+  <%= f.text_field :recruiter %>
   <br />
   <%= f.label :description %>
   <%= f.text_field :description %>

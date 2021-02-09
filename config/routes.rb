@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   get '/auth/:provider/callback', to: 'sessions#omniauth'
   
-  resources :recruiters
+  # resources :recruiters
   resources :jobs do
     resources :applications
     resources :comments, shallow: true  
@@ -16,7 +16,6 @@ Rails.application.routes.draw do
   resources :users
   resources :applications
   
-
   get '/signin', to: 'sessions#new'
   post '/signin', to: 'sessions#create'
   delete '/signout', to: 'sessions#destroy'

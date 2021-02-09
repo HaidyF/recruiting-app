@@ -9,7 +9,7 @@ class ApplicationsController < ApplicationController
     end
 
     def show
-        @application = Application.find(params[:id])
+        @application = Application.find(:id => params[:id])
     end
 
     def new
@@ -28,7 +28,7 @@ class ApplicationsController < ApplicationController
     end
 
     def edit 
-        @application = Application.find_by(params[:id])
+        @application = Application.find_by(:id => params[:id])
     end
 
     def update

@@ -1,5 +1,5 @@
-class Recruiter < ApplicationRecord
-    validates :title, presence: true
+# class Recruiter < ApplicationRecord
+#     validates :title, presence: true
     
-    has_many :jobs
-end
+#     has_many :jobs
+# end

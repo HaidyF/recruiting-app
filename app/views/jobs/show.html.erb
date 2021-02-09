@@ -1,12 +1,17 @@
 <%= flash[:message]%>
 <h1>
 Job:
-<%= @job.title %><br>
-<%= @job.description %><br>
-<%= @job.comment%>
+<br>
+<%= @job.title %> - <%= @job.description %><br>
+
 </h1>
 <br>
-<%= button_to "Apply Here", new_application_path(@application) %>
+<%= link_to "Apply Here", new_job_application_path(@job) %>
+<br>
+<br>
+<%= link_to "Comment on this job", new_job_comment_path(@job) %>
+<br>
+<br>
 <%= link_to "Edit Job", edit_job_path(@job) %>
-<%= link_to "Delete Job", job_path(@job) %>
+<%= link_to "Delete Job", job_path(@job) , :method => :delete %>
 <%= link_to "Home", root_path(@user) %>

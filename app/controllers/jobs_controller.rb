@@ -9,11 +9,11 @@ class JobsController < ApplicationController
     end
 
     def show
-      @job = Job.find(params[:id])
+      @job = Job.find(:id => params[:id])
     end
 
     def edit 
-      @job = Job.find_by(params[:id])
+      @job = Job.find_by(:id => params[:id])
     end
 
     def new

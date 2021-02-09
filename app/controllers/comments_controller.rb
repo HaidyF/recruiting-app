@@ -8,11 +8,11 @@ class CommentsController < ApplicationController
     end
 
     def new
-        @comment = Comment.new
+      @comment = Comment.new
     end
 
     def show
-      @comment = Comment.find(params[:id])
+      @comment = Comment.find(:id => params[:id])
     end
 
     def create 
@@ -27,7 +27,7 @@ class CommentsController < ApplicationController
     end
 
     def edit 
-      @comment = Comment.find_by(params[:id])
+      @comment = Comment.find_by(:id => params[:id])
     end
 
     def update
