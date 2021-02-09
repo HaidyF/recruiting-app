@@ -13,11 +13,17 @@ class ApplicationsController < ApplicationController
     end
 
     def new
-        @application = Application.new
+        if params[:job_id]
+            @job = Job.find_by(params[:job_id])
+           @application = @job.applications.build
+        else
+            @application = Application.new
+        end
     end
 
     def create 
-        @application = Application.new(application_params)
+        user = User.find_by(id: session[:user_id])
+        @application = user.applications.build(application_params)
 
         if @application.valid?
         @application.save
@@ -43,13 +49,13 @@ class ApplicationsController < ApplicationController
     def destroy
         application = Application.find(params[:id])
         application.destroy
-        redirect_to application_path
+        redirect_to '/'
     end
     
       private
     
     def application_params
-        params.require(:application).permit(:title, :description, :experience)
+        params.require(:application).permit(:title, :description, :experience, :job_id)
     end
 
 end

@@ -45,13 +45,13 @@ class JobsController < ApplicationController
     def destroy
         job = Job.find(params[:id])
         job.destroy
-        redirect_to job_path
+        redirect_to '/'
     end
     
       private
     
       def job_params
-        params.require(:job).permit(:title, :description, :experience, :recruiter)
+        params.require(:job).permit(:title, :description, :experience)
       end
     
 end

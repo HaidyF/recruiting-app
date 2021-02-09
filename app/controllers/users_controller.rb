@@ -14,7 +14,7 @@ class UsersController < ApplicationController
           session[:user_id] = @user.id
           redirect_to user_path(@user)
         else
-          flash[:message] = @user.errors.full_messages.to_(", ")  
+          flash[:message] = @user.errors.full_messages.join(", ")  
           render :show
         end
       end
@@ -38,9 +38,9 @@ class UsersController < ApplicationController
       end
 
       def destroy
-  
         user = User.find(params[:id])
         user.destroy
+        redirect_to '/'
       end
     
       private

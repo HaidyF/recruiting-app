@@ -8,7 +8,13 @@ class CommentsController < ApplicationController
     end
 
     def new
-      @comment = Comment.new
+      byebug
+      if params[:job_id]
+      @job = Job.find(params[:job_id])
+      @comment = @job.comments.build
+    else
+        @comment = Comment.new
+    end
     end
 
     def show
@@ -16,12 +22,14 @@ class CommentsController < ApplicationController
     end
 
     def create 
-        @comment = Comment.new(comment_params)
+      user = User.find_by(id: session[:user_id])
+      @comment = user.comments.build(comment_params)
 
         if @comment.valid?
           @comment.save
           redirect_to comment_path(@comment)
         else
+            flash[:message] = @comment.errors.full_messages.join(", ")  
             render :new
         end
     end
@@ -42,13 +50,13 @@ class CommentsController < ApplicationController
     def destroy
         comment = Comment.find(params[:id])
         comment.delete
-        redirect_to comment_path
+        redirect_to '/'
     end
     
       private
     
       def comment_params
-        params.require(:comment).permit(:comment_text, :comment_date)
+        params.require(:comment).permit(:comment_text, :comment_date, :job_id)
       end
     
 end
