@@ -8,11 +8,11 @@ class CommentsController < ApplicationController
     end
 
     def new
-      byebug
       if params[:job_id]
       @job = Job.find(params[:job_id])
       @comment = @job.comments.build
     else
+        flash[:message] = @comment.errors.full_messages.join(", ")  
         @comment = Comment.new
     end
     end

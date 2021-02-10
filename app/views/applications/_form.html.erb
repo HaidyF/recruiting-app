@@ -1,11 +1,13 @@
 <%= form_for (@application) do |f| %>
-<%= f.label :title %>
+<%= f.label :name %>
 <%= f.text_field :title %>
 <br>
-<%= f.label :experience %>
+<%= f.label :job %> <%= f.collection_select :job_id, Job.all, :id, :title, include_blank: true %>
+<br>
+<%= f.label :years_of_experience %>
 <%= f.text_field :experience %>
 <br>
-<%= f.label :description %>
+<%= f.label :education %>
 <%= f.text_field :description %>
 <br>
 <%= f.submit %>
