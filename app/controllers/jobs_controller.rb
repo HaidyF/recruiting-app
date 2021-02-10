@@ -1,5 +1,6 @@
 class JobsController < ApplicationController
-    
+  # before_filter :authorize_admin, only: :create
+
     def index
       # if params[:recruiter_id]
       #   @jobs = Recruiter.find(params[:recruiter_id]).jobs

@@ -14,7 +14,9 @@
   <%= f.label :password %>
   <%= f.password_field :password %>
   <br />
-
+  <%= f.label :admin %>
+  <%= check_box_tag(:admin, "admin") %>
+  <br>
   <%= f.submit %>
 <% end %>
 <br>

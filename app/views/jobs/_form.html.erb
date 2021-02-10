@@ -1,15 +1,12 @@
 <%= form_for (@job) do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+  <%= f.label :title %> <%= f.text_field :title %>
  <br />
   <%= f.label :recruiter %> 
   <%= f.text_field :recruiter %>
   <br />
-  <%= f.label :description %>
-  <%= f.text_field :description %>
+  <%= f.label :description %> <%= f.text_field :description %>
   <br />
-  <%= f.label :experience %>
-  <%= f.text_field :experience %>
+  <%= f.label :experience %> <%= f.text_field :experience %>
   <br />
 
   <%= f.submit %>

@@ -7,4 +7,8 @@ class Job < ApplicationRecord
     # belongs_to :recruiter
     has_many :applications
     has_many :applicants, through: :applications, source: :user
+
+    # def self.admin?
+    #     current_user.admin?
+    # end
 end
