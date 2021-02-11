@@ -23,9 +23,13 @@ class CommentsController < ApplicationController
     end
 
     def create 
-        user = User.find_by(id: session[:user_id])
-        @comment = user.comments.build(comment_params)
-
+      byebug
+      if params[:job_id]
+        @job = Job.find(params[:job_id])
+        @comment = @job.comments.build
+      end
+        @comment = current_user.comments.build(comment_params)
+  
         if @comment.valid?
           @comment.save
           redirect_to comment_path(@comment)

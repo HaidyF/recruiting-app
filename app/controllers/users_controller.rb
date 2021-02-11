@@ -20,9 +20,7 @@ class UsersController < ApplicationController
     
       def show
         @user = User.find_by(:id => params[:id])
-        if session[:user_id] == @user.id
-          redirect_to user_path(@user)
-        else
+        if session[:user_id] != @user.id
           redirect_to '/signin'
         end
       end

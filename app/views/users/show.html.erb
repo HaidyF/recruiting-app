@@ -1,14 +1,14 @@
 <% if logged_in? %>
-Welcome, <%= current_user.name %>
+Welcome, <%= current_user.username %>
 <% end%>
 <h1>
 <%= @user.username %><br>
 <%= @user.email %><br>
 </h1>
 <br>
-<%= link_to "Sign Out", signout_path(@user) %>
-<br>
 <%= link_to "Edit User Account", edit_user_path(@user) %>
+<br>
+<%= button_to "Sign Out", signout_path, method: 'delete', remote: true %>
 <br>
 <%= button_to "Delete User Account", user_path(@user), method: 'delete', remote: true %>
 <br>
