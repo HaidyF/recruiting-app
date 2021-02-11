@@ -3,7 +3,7 @@ class User < ApplicationRecord
     validates :email, presence: true, uniqueness: true
     validates :password, length: { in: 4..20 }
 
-    has_many :comments, through: :jobs
+    has_many :comments
     has_many :jobs, through: :comments
     has_many :applications
     has_many :applied_jobs, through: :applications, source: :job

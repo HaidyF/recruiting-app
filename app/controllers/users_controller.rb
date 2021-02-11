@@ -9,7 +9,6 @@ class UsersController < ApplicationController
       end
   
       def create
-        byebug
         @user = User.create(user_params)
         if @user.valid?
           session[:user_id] = @user.id
@@ -21,6 +20,11 @@ class UsersController < ApplicationController
     
       def show
         @user = User.find_by(:id => params[:id])
+        if session[:user_id] == @user.id
+          redirect_to user_path(@user)
+        else
+          redirect_to '/signin'
+        end
       end
 
       def edit 
