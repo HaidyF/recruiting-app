@@ -5,9 +5,14 @@ class UsersController < ApplicationController
       end
 
       def new
-        @user = User.new
+        if params[:user_id]
+          @user = User.new
+        else
+          flash[:message] = @user.errors.full_messages.join(", ")
+          render :new
+        end
       end
-    
+  
       def create
         @user = User.create(user_params)
         if @user.valid?
@@ -27,6 +32,8 @@ class UsersController < ApplicationController
         @user = User.find_by(:id => params[:id])
       end
 
+
+      
       def update
         @user = User.find(params[:id])
         if @user.update(user_params)

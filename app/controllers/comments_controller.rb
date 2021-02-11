@@ -36,6 +36,7 @@ class CommentsController < ApplicationController
 
     def edit 
       @comment = Comment.find_by(:id => params[:id])
+      flash[:message] = @comment.errors.full_messages.join(", ")  
     end
 
     def update

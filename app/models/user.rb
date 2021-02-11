@@ -1,7 +1,8 @@
 class User < ApplicationRecord
     validates :username, presence: true
-    validates :email, uniqueness: true
-    validates :password, length: { in: 6..20 }
+    validates :first_name, presence: true
+    validates :email, presence: true, uniqueness: true
+    validates :password, length: { in: 4..20 }
 
     has_many :comments, through: :jobs
     has_many :jobs, through: :comments
