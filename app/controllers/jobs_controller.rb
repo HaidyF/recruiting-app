@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  # before_filter :authorize_admin, only: :create
+   before_action :authorize_admin, except: [:index, :show]
 
     def index
       @jobs = Job.ordered_by_title
@@ -18,7 +18,8 @@ class JobsController < ApplicationController
     end
 
     def create 
-        @job = current_user.Job.build(job_params)
+        # @job = current_user.jobs.build(job_params)
+        @job = Job.new(job_params)
         if @job.valid?
           @job.save
           

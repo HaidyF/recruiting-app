@@ -8,7 +8,5 @@ class Job < ApplicationRecord
     has_many :applicants, through: :applications, source: :user
 
     scope :ordered_by_title, -> { order(title: :asc) }
-    # def self.admin?
-    #     current_user.admin?
-    # end
+
     end
