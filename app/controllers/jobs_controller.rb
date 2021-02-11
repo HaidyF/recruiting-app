@@ -5,7 +5,7 @@ class JobsController < ApplicationController
       # if params[:recruiter_id]
       #   @jobs = Recruiter.find(params[:recruiter_id]).jobs
       # else
-      @jobs = Job.all
+      @jobs = Job.ordered_by_title
       # end
     end
 
