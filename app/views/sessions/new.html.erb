@@ -1,7 +1,7 @@
 
 <h1>Sign In: </h1><br>
 
-<%= form_for (@user) do |f| %>
+<%= form_with(url: '/signin') do |f| %>
 
   <%= f.label :username %><br>
   <%= f.text_field :username %><br>
@@ -13,7 +13,8 @@
   <%= f.password_field :password %><br>
   <br>
   <%= f.submit 'Sign In' %>
-  <% end %>
+
+<% end %>
 
 <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
 

@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
 
     def new
-        @user=User.new
     end
 
     def omniauth 
@@ -16,13 +15,13 @@ class SessionsController < ApplicationController
     end
 
     def create
-        @user = User.find_by(name: user_params[:name])
-        if @user && @user.authenticate(user_params[:password])
+          @user = User.find_by_email(params[:email])
+        if @user && @user.authenticate(params[:password])
           session[:user_id] = @user.id
           redirect_to user_path(@user)
         else
           flash[:message] = "Please Enter Valid Combination."
-          redirect_to '/login'
+          redirect_to '/signin'
         end
       end
 

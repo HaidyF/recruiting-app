@@ -2,11 +2,7 @@ class JobsController < ApplicationController
   # before_filter :authorize_admin, only: :create
 
     def index
-      # if params[:recruiter_id]
-      #   @jobs = Recruiter.find(params[:recruiter_id]).jobs
-      # else
       @jobs = Job.ordered_by_title
-      # end
     end
 
     def show
@@ -15,16 +11,14 @@ class JobsController < ApplicationController
 
     def edit 
       @job = Job.find_by(:id => params[:id])
-      flash[:message] = @job.errors.full_messages.join(", ")
     end
 
     def new
-        @job = Job.new  
-        flash[:message] = @job.errors.full_messages.join(", ")  
+        @job = Job.new   
     end
 
     def create 
-        @job = Job.new(job_params)
+        @job = current_user.Job.build(job_params)
         if @job.valid?
           @job.save
           

@@ -5,12 +5,7 @@ class UsersController < ApplicationController
       end
 
       def new
-        if params[:user_id]
           @user = User.new
-        else
-          flash[:message] = @user.errors.full_messages.join(", ")
-          render :new
-        end
       end
   
       def create
@@ -20,7 +15,7 @@ class UsersController < ApplicationController
           redirect_to user_path(@user)
         else
           flash[:message] = @user.errors.full_messages.join(", ")  
-          render :show
+          redirect_to '/signin'
         end
       end
     
@@ -31,16 +26,14 @@ class UsersController < ApplicationController
       def edit 
         @user = User.find_by(:id => params[:id])
       end
-
-
       
       def update
         @user = User.find(params[:id])
         if @user.update(user_params)
           redirect_to user_path(@user)
         else
-          flash[:message] = @user.errors.full_messages.to_(", ")  
-          render :edit
+          flash[:message] = @user.errors.full_messages.join(", ")  
+          redirect_to '/users'
         end
       end
 
