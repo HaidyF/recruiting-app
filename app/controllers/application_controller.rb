@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     end
 
     def admin?
-        current_user.recruiter  
+        current_user.recruiter
     end
 
     def logged_in?

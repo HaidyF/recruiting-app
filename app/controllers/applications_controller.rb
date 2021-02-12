@@ -17,14 +17,12 @@ class ApplicationsController < ApplicationController
             @job = Job.find_by(params[:job_id])
            @application = @job.applications.build
         else
-            flash[:message] = @application.errors.full_messages.join(", ") 
             @application = Application.new
         end
     end
 
     def create 
-        user = User.find_by(id: session[:user_id])
-        @application = user.applications.build(application_params)
+        @application = current_user.applications.build(application_params)
 
         if @application.valid?
         @application.save

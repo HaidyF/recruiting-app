@@ -13,7 +13,6 @@ class CommentsController < ApplicationController
       @job = Job.find(params[:job_id])
       @comment = @job.comments.build
     else
-        flash[:message] = @comment.errors.full_messages.join(", ")  
         @comment = Comment.new
     end
     end

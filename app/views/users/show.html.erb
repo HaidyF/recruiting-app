@@ -1,16 +1,19 @@
 <% if logged_in? %>
-Welcome, <%= current_user.username %>
+<h1>Welcome, <%= current_user.username %>!</h1>
 <% end%>
-<h1>
-<%= @user.username %><br>
-<%= @user.email %><br>
-</h1>
+<h3>
+Username: <%= @user.username %><br>
+Email: <%= @user.email %><br>
+</h3>
 <br>
 <%= link_to "Edit User Account", edit_user_path(@user) %>
+<br>
 <br>
 <%= button_to "Sign Out", signout_path, method: 'delete', remote: true %>
 <br>
 <%= button_to "Delete User Account", user_path(@user), method: 'delete', remote: true %>
+<br>
+<h3><%= link_to "All Jobs", jobs_path(@job) %></h3>
 <br>
 <%= link_to "Home", root_path(@user) %>
 
