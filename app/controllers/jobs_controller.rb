@@ -25,7 +25,6 @@ class JobsController < ApplicationController
           
           redirect_to job_path(@job)
         else
-          flash[:message] = @job.errors.full_messages.join(", ")  
           render :new
         end
     end
@@ -35,7 +34,6 @@ class JobsController < ApplicationController
         if @job.update(job_params)
           redirect_to job_path(@job)
         else
-          flash[:message] = @job.errors.full_messages.join(", ")
           render :edit
         end
     end

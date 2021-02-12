@@ -34,7 +34,6 @@ class UsersController < ApplicationController
         if @user.update(user_params)
           redirect_to user_path(@user)
         else
-          flash[:message] = @user.errors.full_messages.join(", ")  
           redirect_to '/users'
         end
       end

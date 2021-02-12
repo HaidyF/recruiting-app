@@ -30,14 +30,12 @@ class ApplicationsController < ApplicationController
         @application.save
             redirect_to application_path(@application)
         else
-            flash[:message] = @application.errors.full_messages.join(", ") 
             render :new
         end
     end
 
     def edit 
         @application = Application.find_by(:id => params[:id])
-        flash[:message] = @application.errors.full_messages.join(", ") 
     end
 
     def update

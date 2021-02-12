@@ -23,7 +23,6 @@ class CommentsController < ApplicationController
     end
 
     def create 
-      byebug
       if params[:job_id]
         @job = Job.find(params[:job_id])
         @comment = @job.comments.build
@@ -34,14 +33,12 @@ class CommentsController < ApplicationController
           @comment.save
           redirect_to comment_path(@comment)
         else
-            flash[:message] = @comment.errors.full_messages.join(", ")  
             render :new
         end
     end
 
     def edit 
       @comment = Comment.find_by(:id => params[:id])
-      flash[:message] = @comment.errors.full_messages.join(", ")  
     end
 
     def update
