@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
   resources :users, except: :destroy
   resources :applications
-  resources :comments
+  resources :comments, except: [:new, :create]
   
   delete '/users/:id', to: 'users#destroy', as: "delete_user"
   get '/signin', to: 'sessions#new'

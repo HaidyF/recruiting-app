@@ -9,12 +9,8 @@ class CommentsController < ApplicationController
     end
 
     def new
-      if params[:job_id]
       @job = Job.find(params[:job_id])
       @comment = @job.comments.build
-    else
-        @comment = Comment.new
-    end
     end
 
     def show
@@ -22,16 +18,15 @@ class CommentsController < ApplicationController
     end
 
     def create 
-      if params[:job_id]
         @job = Job.find(params[:job_id])
         @comment = @job.comments.build
-      end
-        @comment = current_user.comments.build(comment_params)
-  
+        @comment.user = current_user
+       
         if @comment.valid?
           @comment.save
           redirect_to comment_path(@comment)
         else
+            #flash messages
             render :new
         end
     end
