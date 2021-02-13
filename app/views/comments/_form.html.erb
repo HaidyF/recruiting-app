@@ -1,6 +1,4 @@
-<%= if %>
-<%= flash[:message]%>
-<%=end%>
+<%= render "error" %>
 <%= form_for [@job, @comment] do |f| %>
   <%= f.label :comment_text %>
   <%= f.text_field :comment_text %>

@@ -1,0 +1,21 @@
+<% if @application.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@application.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+    <ul>
+      <% @application.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="field_with_errors">
+  <input id="application_title" name="application[title]" size="30" type="text" value="">
+</div>
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}

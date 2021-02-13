@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
         redirect_to user_path
       else
         flash[:message] = user.errors.full_messages.join(", ")
-        #redirect_to new_users_path
+        redirect_to '/signin'
       end
     end
 

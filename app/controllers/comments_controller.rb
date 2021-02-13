@@ -26,7 +26,6 @@ class CommentsController < ApplicationController
           @comment.save
           redirect_to comment_path(@comment)
         else
-            #flash messages
             render :new
         end
     end
