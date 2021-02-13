@@ -19,7 +19,10 @@ class UsersController < ApplicationController
       end
     
       def show
+
         @user = User.find_by(:id => params[:id])
+        @applications = Application.where(user_id: @user.id)
+       byebug
         if session[:user_id] != @user.id
           redirect_to '/signin'
         end

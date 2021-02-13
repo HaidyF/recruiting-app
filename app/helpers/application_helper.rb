@@ -4,7 +4,9 @@ module ApplicationHelper
     end
 
     def admin?
-        current_user.recruiter
+        if current_user
+            current_user.recruiter
+        end
     end
 
     def logged_in?

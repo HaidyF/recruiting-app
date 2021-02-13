@@ -1,9 +1,16 @@
 
+<h2>
+Job: 
+<%= @job.title%>
+<br>
+</h2>
 <h1>
-<label name="Comment"></label>
+Your Comment:
 <%= @comment.comment_text %><br>
-
 </h1>
+
+<h3>Thanks for commenting <%= @user.username%>.
+</h3>
 <br>
 <%= button_to "Delete Comment", comment_path(@comment), method: 'delete', remote: true %>
 

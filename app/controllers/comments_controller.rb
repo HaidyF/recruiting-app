@@ -15,13 +15,16 @@ class CommentsController < ApplicationController
 
     def show
       @comment = Comment.find_by(:id => params[:id])
+      @job = Job.find_by(:id => @comment.job_id)
+      @user = User.find_by(:id => @comment.user_id)
     end
 
     def create 
+     
         @job = Job.find(params[:job_id])
-        @comment = @job.comments.build
+        @comment = @job.comments.build(comment_params)
         @comment.user = current_user
-       
+        byebug
         if @comment.valid?
           @comment.save
           redirect_to comment_path(@comment)

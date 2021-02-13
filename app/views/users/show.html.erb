@@ -5,6 +5,11 @@
 Username: <%= @user.username %><br>
 Email: <%= @user.email %><br>
 </h3>
+
+Jobs Applied For: <% @applications.each do |a| %>
+<%= a.title%>
+<br>
+<% end %>
 <br>
 <%= link_to "Edit User Account", edit_user_path(@user) %>
 <br>
