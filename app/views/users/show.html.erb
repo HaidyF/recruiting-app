@@ -7,7 +7,8 @@ Email: <%= @user.email %><br>
 </h3>
 
 Jobs Applied For: <% @applications.each do |a| %>
-<%= a.title%>
+<br>
+- <%= a.job.title%>
 <br>
 <% end %>
 <br>

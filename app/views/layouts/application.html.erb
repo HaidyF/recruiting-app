@@ -9,6 +9,13 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true, skip_pipeline: true %>
    
+<br>
+    <h3>
+    <%= link_to "All Jobs", jobs_path(@job) %> |
+    <%= link_to "Sign In", signin_path(@user) %> |
+    <%= link_to "Sign Up", new_user_path(@user) %> |
+    <%= link_to "Home", root_path(@user) %>
+    </h3>
     <div class="left-pic">
     <img src="https://cdn.technologyadvice.com/wp-content/uploads/2019/11/The-Best-Recruitment-Software-for-Agencies1.png"
       style= "width:50%;">
