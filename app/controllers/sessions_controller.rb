@@ -5,11 +5,12 @@ class SessionsController < ApplicationController
 
     def omniauth 
       user = User.create_from_omniauth(auth)
+  
       if user.valid?
         session[:user_id] = user.id
-        redirect_to user_path
+        redirect_to user_path(current_user)
       else
-        flash[:message] = user.errors.full_messages.join(", ")
+        flash[:message] = @user.errors.full_messages.join(", ")
         redirect_to '/signin'
       end
     end

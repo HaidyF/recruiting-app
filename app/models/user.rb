@@ -1,7 +1,7 @@
 class User < ApplicationRecord
     validates :username, presence: true
     validates :email, presence: true, uniqueness: true
-    validates :password, length: { in: 4..20 }
+    validates :password, length: { in: 1..25 }
 
     has_many :comments
     has_many :jobs, through: :comments
@@ -12,7 +12,7 @@ class User < ApplicationRecord
     
 
     def self.create_from_omniauth(auth)
-        User.find_or_create_by(uid: auth['uid'], provider: auth['provider']) do |u|
+            User.find_or_create_by(uid: auth['uid'], provider: auth['provider']) do |u|
             u.username = auth['info']['first_name']
             u.email = auth['info']['email']
             u.password = SecureRandom.hex(10)
