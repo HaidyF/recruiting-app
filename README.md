@@ -1,24 +1,9 @@
 # README
+rails-portfolio-project - T-Recruit
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Flatiron school rails portfolio project by Haidy Farahat 
 
-Things you may want to cover:
+Rails Version: Rails 6.1.1
 
-* Ruby version
+After cloning the repo, run bundle to install dependencies. To migrate your local database, run rake db:migrate. To start the application on your machine, run 'rails s' from the application root. In a browser, go to http://localhost:3000/ to begin.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
