@@ -19,12 +19,11 @@ class CommentsController < ApplicationController
       @user = User.find_by(:id => @comment.user_id)
     end
 
-    def create 
-     
+    def create
         @job = Job.find(params[:job_id])
         @comment = @job.comments.build(comment_params)
         @comment.user = current_user
-        byebug
+       
         if @comment.valid?
           @comment.save
           redirect_to comment_path(@comment)

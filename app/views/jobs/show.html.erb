@@ -3,7 +3,14 @@
 Job:
 <br>
 <%= @job.title %> - <%= @job.description %><br>
+<br>
 
+<h2>Job Comments: <br>
+-<% @comments.each do |c| %>
+<%= c.comment_text%>
+<br>
+<% end%>
+</h2>
 </h1>
 <br>
 <%= link_to "Apply Here", new_job_application_path(@job) %>

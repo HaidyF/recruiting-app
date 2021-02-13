@@ -1,5 +1,5 @@
 <%= form_for (@application) do |f| %>
-<%= f.label :name %>
+<%= f.label :desired_name %>
 <%= f.text_field :title %>
 <br>
 <%= f.label :job %> <%= f.collection_select :job_id, Job.all, :id, :title, include_blank: true %>
@@ -12,6 +12,7 @@
 <br>
 <%= f.submit %>
 <% end %>
-
+<br>
+<%= link_to "Account", user_path(current_user)%>
 <br>
 <%= link_to "Home", root_path(@user) %>

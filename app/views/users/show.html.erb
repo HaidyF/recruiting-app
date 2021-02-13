@@ -14,11 +14,12 @@ Jobs Applied For: <% @applications.each do |a| %>
 <%= link_to "Edit User Account", edit_user_path(@user) %>
 <br>
 <br>
+<%= link_to "New Job", new_job_path(@job) %>
+<br>
+<h3><%= link_to "All Jobs", jobs_path(@job) %></h3>
 <%= button_to "Sign Out", signout_path, method: 'delete', remote: true %>
 <br>
 <%= button_to "Delete User Account", user_path(@user), method: 'delete', remote: true %>
-<br>
-<h3><%= link_to "All Jobs", jobs_path(@job) %></h3>
 <br>
 <%= link_to "Home", root_path(@user) %>
 

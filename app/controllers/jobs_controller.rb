@@ -7,6 +7,7 @@ class JobsController < ApplicationController
 
     def show
       @job = Job.find_by(:id => params[:id])
+      @comments = Comment.where(job_id: @job.id)
     end
 
     def edit 

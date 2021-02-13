@@ -6,4 +6,6 @@
   <%= f.submit %>
 <% end %>
 <br>
+<%= link_to "Account", user_path(current_user)%>
+<br>
 <%= link_to "Home", root_path(@user) %>
