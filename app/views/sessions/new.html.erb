@@ -1,4 +1,8 @@
 
+<%if flash[:message] %>
+<%=flash[:message]%>
+<%end%>
+
 <h1>Sign In: </h1><br>
 
 <%= form_with(url: '/signin') do |f| %>

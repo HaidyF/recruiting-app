@@ -13,3 +13,5 @@ Your Comment:
 </h3>
 <br>
 <%= button_to "Delete Comment", comment_path(@comment), method: 'delete', remote: true %>
+<br>
+<%= link_to "Account", user_path(current_user)%>
