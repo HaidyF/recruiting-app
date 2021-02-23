@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :applications
     resources :comments, shallow: true  
   end
-  resources :users, except: :destroy
+  resources :users, except: [:destroy, :index]
   resources :applications
   resources :comments, except: [:new, :create]
   

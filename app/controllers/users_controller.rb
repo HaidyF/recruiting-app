@@ -1,8 +1,5 @@
 class UsersController < ApplicationController
   before_action :logged_in?, except: [:new, :create]
-      def index
-        @users = User.all
-      end
 
       def new
           @user = User.new
